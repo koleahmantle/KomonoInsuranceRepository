@@ -9,7 +9,7 @@ namespace KomodoInsurance_POCCO
     public class DevTeamPOCO
     {
         //create properties for developer team (Developers/Team Members, Team Name, Team ID)
-        public string TeamMemberName { get; set; }
+        public List<DeveloperPOCO> TeamMemberList { get; set; }
         public string TeamName { get; set; }
         public int TeamId { get; set; }
 
@@ -17,9 +17,8 @@ namespace KomodoInsurance_POCCO
         public DevTeamPOCO () { }
 
         //create filled constructor
-        public DevTeamPOCO (string teamMemberName, string teamName, int teamId)
+        public DevTeamPOCO (string teamName, int teamId)
         {
-            TeamMemberName = teamMemberName;
             TeamName = teamName;
             TeamId = teamId;
         }

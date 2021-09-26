@@ -12,6 +12,7 @@ namespace KomodoInsuranceProgram
     {
         private DeveloperRepo _developerRepo = new DeveloperRepo();
         private DevTeamRepo _devTeamRepo = new DevTeamRepo();
+        List<DeveloperPOCO> teamMemberName = new List<DeveloperPOCO>();
 
         // Method that starts the application
         public void Run()
@@ -82,9 +83,7 @@ namespace KomodoInsuranceProgram
         {
             bool keepRunning = true;
             while (keepRunning)
-
-                Console.Clear();
-
+            {
                 // Display options to user
                 Console.WriteLine("Select a menu option\n" +
                     "1. Add new Team Member\n" +
@@ -93,44 +92,45 @@ namespace KomodoInsuranceProgram
                     "4. Delete Team Member\n" +
                     "5. Back to Main Memu" +
                     "6. Exit");
-            // Get user input
-            string devTeamChoice = Console.ReadLine();
-            // Evaluate user input
-            switch (devTeamChoice)
-            {
-                case "1":
-                    // Add new Team Member
-                    CreateNewTeamMember();
-                    break;
-                case "2":
-                    // See all Team  Member
-                    DisplayAllTeamMembers();
-                    break;
-                case "3":
-                    // Update Team  Member
-                    UpdateExistingMembers();
-                    break;
-                case "4":
-                    //Delete Team  Member
-                    DeleteExistingMember();
-                    break;
-                case "5":
-                    //Back to main menu
-                    MainMenu();
-                    keepRunning = false;
-                    break;
-                case "6":
-                    //Exit
-                    Console.WriteLine("Goodbye!");
-                    keepRunning = false;
-                    break;
-                default:
-                    Console.WriteLine("Please enter a valid number, 1-6");
-                    break;
+                // Get user input
+                string devTeamChoice = Console.ReadLine();
+                // Evaluate user input
+                switch (devTeamChoice)
+                {
+                    case "1":
+                        // Add new Team Member
+                        CreateNewTeamMember();
+                        break;
+                    case "2":
+                        // See all Team  Member
+                        DisplayAllTeamMembers();
+                        break;
+                    case "3":
+                        // Update Team  Member
+                        UpdateExistingMembers();
+                        break;
+                    case "4":
+                        //Delete Team  Member
+                        DeleteExistingMember();
+                        break;
+                    case "5":
+                        //Back to main menu
+                        MainMenu();
+                        keepRunning = false;
+                        break;
+                    case "6":
+                        //Exit
+                        Console.WriteLine("Goodbye!");
+                        keepRunning = false;
+                        break;
+                    default:
+                        Console.WriteLine("Please enter a valid number, 1-6");
+                        break;
+                }
+                Console.WriteLine("Please press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
             }
-            Console.WriteLine("Please press any key to continue");
-            Console.ReadKey();
-            Console.Clear();
         }
         private void MainMenu()
         {
@@ -155,6 +155,39 @@ namespace KomodoInsuranceProgram
             Console.WriteLine("Please press any key to continue");
             Console.ReadKey();
             Console.Clear();
+        }
+
+        private void Create()
+        {
+            DeveloperPOCO newDeveloper = new DeveloperPOCO();
+            DevTeamPOCO newTeamMember = new DevTeamPOCO();
+
+            bool running = true;
+           do
+            {
+                Console.WriteLine("Do you want to\n" +
+                    "1. create a new developer\n" +
+                    "2. add a team member?" +
+                    "3. Exit");
+                string input = Console.ReadLine();
+
+                
+                switch (input)
+                {
+                    case "1":
+                        CreateNewDeveloper();
+                        break;
+                    case "2":
+                        CreateNewTeamMember();
+                        break;
+                    case "3":
+                        running = false;
+                        break;
+
+                }
+            } while (running);
+            _devTeamRepo.AddDevTeamMember(newDeveloper);
+            _devTeamRepo.AddDevTeamToList(newTeamMember);
         }
         private void CreateNewDeveloper()
         {
@@ -194,12 +227,12 @@ namespace KomodoInsuranceProgram
             bool keepRunning = true;
             while (keepRunning)
             {
-                Console.Clear();
-
+                Console.Clear();         
                 DevTeamPOCO newTeamMember = new DevTeamPOCO();
                 // Name
                 Console.WriteLine("Enter name for the team member");
-                newTeamMember.TeamMemberName = Console.ReadLine();
+               //newTeamMember.TeamMemberList = Console.ReadLine();
+               
 
                 //Id
                 Console.WriteLine("Enter Team Name");
@@ -239,7 +272,7 @@ namespace KomodoInsuranceProgram
 
             foreach (DevTeamPOCO teamMember in listOfTeamMembers)
             {
-                Console.WriteLine($"Member Name: {teamMember.TeamMemberName}\n" +
+                Console.WriteLine($"Member Name: {teamMember.TeamMemberList}\n" +
                     $"Team Name: {teamMember.TeamName}\n" +
                     $"Team ID: {teamMember.TeamId}\n");
             }
@@ -294,9 +327,9 @@ namespace KomodoInsuranceProgram
             DevTeamPOCO newTeamMember = new DevTeamPOCO();
             // Name
             Console.WriteLine("Enter name for the team member");
-            newTeamMember.TeamMemberName = Console.ReadLine();
+            //newTeamMember.TeamMemberList.Add("literal");
 
-            //Id
+            //Team Name
             Console.WriteLine("Enter Team Name");
             newTeamMember.TeamName = Console.ReadLine();
 
@@ -389,6 +422,17 @@ namespace KomodoInsuranceProgram
             _developerRepo.AddContentToList(dev4);
             _developerRepo.AddContentToList(dev5);
         }
+
+        //private void SeedContentList2()
+        //{
+        //    DevTeamPOCO mem1 = new DevTeamPOCO("Jason Jackson", "winner", 12);
+        //    DevTeamPOCO mem2 = new DevTeamPOCO("sharon smith", "winner", 12);
+        //    DevTeamPOCO mem3 = new DevTeamPOCO("Janet somer", "winner", 12);
+
+        //    _devTeamRepo.DeleteTeamMemberFromList(mem1);
+        //    _devTeamRepo.DeleteTeamMemberFromList(mem2);
+        //    _devTeamRepo.DeleteTeamMemberFromList(mem3);
+        //}
     }
 }
 

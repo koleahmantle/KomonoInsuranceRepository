@@ -10,7 +10,8 @@ namespace KomodoInsurance_Repo
    public class DevTeamRepo
     {
         //create list of DevTeam.
-        private List<DevTeamPOCO> _listofDevTeam = new List<DevTeamPOCO>() ;
+        private List<DevTeamPOCO> _listofDevTeam = new List<DevTeamPOCO>();
+        private DevTeamPOCO _devTeam = new DevTeamPOCO(); 
 
         //Create
         public bool AddDevTeamToList(DevTeamPOCO teamMember)
@@ -26,6 +27,19 @@ namespace KomodoInsurance_Repo
             return false;
         }
 
+        public bool AddDevTeamMember(DeveloperPOCO teamMember)
+        {
+            int initialCount = _devTeam.TeamMemberList.Count;
+
+            _devTeam.TeamMemberList.Add(teamMember);
+
+            if (initialCount < _devTeam.TeamMemberList.Count)
+            {
+                return true;
+            }
+
+            return false;
+        }
         //Read
         public List<DevTeamPOCO> GetTeamMeberFromList()
         {
@@ -46,7 +60,7 @@ namespace KomodoInsurance_Repo
             }
             else
             {
-                teamMember.TeamMemberName = newTeamMember.TeamMemberName;
+                teamMember.TeamMemberList = newTeamMember.TeamMemberList;
                 teamMember.TeamName = newTeamMember.TeamName;
                 teamMember.TeamId = newTeamMember.TeamId;
                 return true;
@@ -85,6 +99,19 @@ namespace KomodoInsurance_Repo
                 {
                     return teamMember;
                 }
+            }
+
+            return null;
+        }
+
+        public DeveloperPOCO GetTeamMember(int id)
+        {
+            foreach (DeveloperPOCO teamMember in _devTeam.TeamMemberList)
+            {
+                if(teamMember.Id == id)
+                {
+                    return teamMember;
+                }              
             }
 
             return null;
