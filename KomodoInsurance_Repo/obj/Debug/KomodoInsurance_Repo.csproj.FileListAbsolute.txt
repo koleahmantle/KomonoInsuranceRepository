@@ -1,0 +1,9 @@
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsuranceProgram\KomodoInsurance_Repo\bin\Debug\KomodoInsurance_Repo.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsuranceProgram\KomodoInsurance_Repo\bin\Debug\KomodoInsurance_Repo.pdb
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsuranceProgram\KomodoInsurance_Repo\bin\Debug\KomodoInsurance_POCCO.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsuranceProgram\KomodoInsurance_Repo\bin\Debug\KomodoInsurance_POCCO.pdb
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsuranceProgram\KomodoInsurance_Repo\obj\Debug\KomodoInsurance_Repo.csproj.AssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsuranceProgram\KomodoInsurance_Repo\obj\Debug\KomodoInsurance_Repo.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsuranceProgram\KomodoInsurance_Repo\obj\Debug\KomodoInsurance_Repo.csproj.CopyComplete
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsuranceProgram\KomodoInsurance_Repo\obj\Debug\KomodoInsurance_Repo.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsuranceProgram\KomodoInsurance_Repo\obj\Debug\KomodoInsurance_Repo.pdb
